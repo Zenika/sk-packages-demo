@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "github>Zenika/sk-packages-tools//packages/renovate/default.json"
+    "github>Zenika/sk-packages-tools//packages/renovate/default"
   ]
 }
