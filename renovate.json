@@ -3,11 +3,58 @@
   "extends": [
     "github>Zenika/sk-packages-tools//packages/renovate/default"
   ],
-  "vulnerabilityAlerts": {
-    "enabled": true,
-    "labels": [
-      "\uD83D\uDEA8 security"
-    ]
+  "lockFileMaintenance": {
+    "enabled": true
   },
-  "osvVulnerabilityAlerts": true
+  "major": {
+    "dependencyDashboardApproval": false
+  },
+  "branchPrefix": "renovate-",
+  "prConcurrentLimit": 10,
+  "recreateWhen": "never",
+  "platformAutomerge": true,
+  "vulnerabilityAlerts": {
+    "commitMessageSuffix": "\uD83D\uDEA8",
+    "commitMessagePrefix": "fix(dependencies/security): "
+  },
+  "osvVulnerabilityAlerts": true,
+  "packageRules": [
+    {
+      "matchDatasources": ["npm"],
+      "minimumReleaseAge": "3 days"
+    },
+    {
+      "matchUpdateTypes": ["patch"],
+      "addLabels": ["PATCH"],
+      "automerge": true,
+      "automergeStrategy": "squash"
+    },
+    {
+      "commitMessagePrefix": "chore(dependencies): ",
+      "addLabels": [
+        "\uD83D\uDC40 Tech review needed"
+      ],
+      "matchManagers": ["npm"]
+    },
+    {
+      "commitMessagePrefix": "chore(dependencies/code-quality): ",
+      "addLabels": [
+        "\uD83D\uDC40 Tech review needed"
+      ],
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["eslint", "prettier"],
+      "groupName": "Code quality",
+      "groupSlug": "code-quality"
+    },
+    {
+      "commitMessagePrefix": "chore(dependencies/starter-kit): ",
+      "addLabels": [
+        "\uD83D\uDC40 Tech review needed"
+      ],
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["@znk-sk-tools/**"],
+      "groupName": "Starter kit dependencies",
+      "groupSlug": "sk-dependencies"
+    }
+  ]
 }
