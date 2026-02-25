@@ -2,5 +2,12 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "github>Zenika/sk-packages-tools//packages/renovate/default"
-  ]
+  ],
+  "vulnerabilityAlerts": {
+    "enabled": true,
+    "labels": [
+      "\uD83D\uDEA8 security"
+    ]
+  },
+  "osvVulnerabilityAlerts": true
 }
