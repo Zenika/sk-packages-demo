@@ -3,11 +3,50 @@
   "extends": [
     "github>Zenika/sk-packages-tools//packages/renovate/default"
   ],
-  "vulnerabilityAlerts": {
-    "enabled": true,
-    "labels": [
-      "\uD83D\uDEA8 security"
-    ]
+  "branchPrefix": "renovate-",
+  "lockFileMaintenance": {
+    "enabled": true
   },
-  "osvVulnerabilityAlerts": true
+  "prConcurrentLimit": 10,
+  "recreateWhen": "never",
+  "platformAutomerge": true,
+  "vulnerabilityAlerts": {
+    "enabled": true
+  },
+  "osvVulnerabilityAlerts": true,
+  "packageRules": [
+    {
+      "matchDatasources": ["npm"],
+      "minimumReleaseAge": "3 days"
+    },
+    {
+      "matchUpdateTypes": ["patch"],
+      "addLabels": ["PATCH"],
+      "automerge": true,
+      "automergeStrategy": "squash"
+    },
+    {
+      "matchDatasources": ["npm"],
+      "matchCategories": ["security"],
+      "commitMessageSuffix": "\uD83D\uDEA8",
+      "commitMessagePrefix": "fix(dependencies/security): "
+    },
+    {
+      "commitMessagePrefix": "chore(dependencies): ",
+      "addLabels": [
+        "\uD83D\uDC40 Tech review needed"
+      ],
+      "matchManagers": ["npm"]
+    },
+    {
+      "commitMessagePrefix": "chore(dependencies/tools): ",
+      "addLabels": [
+        "\uD83D\uDC40 Tech review needed"
+      ],
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["eslint", "prettier"],
+      "groupName": "Format & lint Tools",
+      "groupSlug": "format-lint-tools"
+    }
+  ]
 }
