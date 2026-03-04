@@ -98,17 +98,17 @@ A l'aide de la [documentation](https://docs.renovatebot.com/configuration-option
 - [ ] Etendre la configuration de base proposée par le toolkit
   - `extends` 
   - La configuration se trouve [ici](https://github.com/Zenika/sk-packages-tools/blob/main/packages/renovate/default.json) : `github>Zenika/sk-packages-tools//packages/renovate/default`  
--[ ] Détecter les dépendances avec une faille de sécurité
+- [ ] Détecter les dépendances avec une faille de sécurité
   - `osvVulnerabilityAlerts, vulnerabilityAlerts`
--[ ] Limiter les PR concurrentes à 5
+- [ ] Limiter les PR concurrentes à 5
   - `prConcurrentLimit`
--[ ] Ajouter un préfixe aux branches Renovate : `renovate-` pour facilement les différencier des autres branches
+- [ ] Ajouter un préfixe aux branches Renovate : `renovate-` pour facilement les différencier des autres branches
   - `branchPrefix`
--[ ] Ajouter un préfixe de commit pour les PR
+- [ ] Ajouter un préfixe de commit pour les PR
   - `packageRules, commitMessagePrefix`
--[ ] Attendre au minium 3 jours avant d'autoriser une mise à jour de dépendance
+- [ ] Attendre au minium 3 jours avant d'autoriser une mise à jour de dépendance
   - `packageRules, minimumReleaseAge, matchDatasources`
--[ ] Créer un groupe pour autoriser l'automerge uniquement sur les patchs
+- [ ] Créer un groupe pour autoriser l'automerge uniquement sur les patchs
   - `packageRules, matchUpdateTypes, automerge`
 
 💡 N'hésitez pas à ajouter d'autres règles que vous pensez intéressante !
